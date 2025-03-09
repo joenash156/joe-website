@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rock Paper Scissors</title>
+
+  <link rel="stylesheet" href="styles/fontawesome-free-6.7.2-web/css/all.min.css">
+  <link rel="stylesheet" href="styles/tailwind.min.css">
+  <link rel="stylesheet" href="/styles/style.css">
+
+  <style>
+    .light-theme{
+      background-color: rgb(239, 239, 239);
+      color: rgb(21, 21, 25);
+      transition: all 0.15s ease-in-out;
+    }
+
+    .light-theme-button {
+      border-color: rgb(30, 30, 35);
+      transition: all 0.15s ease-in-out;
+    }
+  </style>
+
+</head>
+<body class="bg-gray-900 text-white flex justify-center items-center h-screen transition-all">
+  <main class="main-section text-center">
+
+    <button class="theme-button font-semibold text-lg focus:outline-none border py-1 px-2 rounded" id="theme-button">
+      <span class="light hidden">
+        <i class="fa-solid fa-sun"></i>
+      </span>
+      <span class="dark">
+        <i class="fa-solid fa-moon"></i>
+      </span>
+      Dark theme
+    </button>
+
+    <h2 class="my-2 md:my-1 text-2xl md:text-4xl font-semibold md:mb-14">Rock Paper Scissors</h2>
+  
+    <button class="move-button rounded-full p-2 border-4 border-white focus:outline-none hover:bg-blue-100 hover:border-red-300 transition-all text-white mx-3" onclick="
+
+    playGame('rock')
+
+    ">
+      <img src="./images/rock-emoji.png" alt="" class="md:w-40 w-24">
+    </button>
+
+    <button class="move-button rounded-sm p-2 focus:outline-none transition-all border-4 border-white rounded-full mx-3 hover:bg-blue-100 hover:border-red-300" onclick="
+
+    playGame('paper')
+
+    ">
+      <img src="./images/paper-emoji.png" alt="" class="md:w-40 w-24">
+    </button>
+    <button class="move-button rounded-sm p-2 focus:outline-none transition-all border-4 border-white rounded-full mx-3 hover:bg-blue-100 hover:border-red-300" onclick="
+
+    playGame('scissors');
+
+    ">
+      <img src="./images/scissors-emoji.png" alt="" class="md:w-40 w-24">
+    </button>
+
+    <p class="py-1 font-semibold text-lg md:text-2xl md:my-4" id="js-result">
+      <!-- Displays the results of the game -->
+    </p>
+
+    <p class="md:py-1 flex justify-center items-center md:text-2xl text-lg" id="js-moves">
+    <!-- Displays the movess of the game -->
+      <!-- You<img src="/images/rock-emoji.png" alt="" class="w-10 md:w-14">
+      <img src="/images/paper-emoji.png" alt="" class="w-10 md:w-14">
+      Computer -->
+    </p>
+
+    <p class="md:py-5 md:text-2xl text-lg py-1" id="js-score">
+      <!-- Displays the score of the game -->
+    </p>
+
+    <button class="rounded-sm px-2 py-2 focus:outline-none bg-red-500 hover:bg-red-600 transition-all text-white font-semibold" onclick="
+
+    score.wins = 0;
+    score.loses = 0;
+    score.ties = 0;
+    localStorage.removeItem('score');
+    updateScoreElement();
+
+    document.querySelector('#js-result').innerHTML = '';
+
+    document.querySelector('#js-moves').innerHTML = ``;
+
+    ">Reset Score</button>
+  </main>
+  
+
+
+  <script src="./scripts/rock-paper-scissors.js"></script>
+
+</body>
+</html>
